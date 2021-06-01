@@ -1,0 +1,11 @@
+ :: Spring Boot ::                (v2.4.6)
+
+2021-06-01 15:45:39.368  INFO 2372 --- [           main] com.example.Application                  : Starting Application using Java 1.8.0_281 on DESKTOP-G5807HG with PID 2372 (F:\workspace2020\spring-test\_01_spring_core\bin\main started by ysh in F:\workspace2020\spring-test\_01_spring_core)
+2021-06-01 15:45:39.370  INFO 2372 --- [           main] com.example.Application                  : No active profile set, falling back to default profiles: default
+2021-06-01 15:45:40.430  INFO 2372 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-01 15:45:40.439  INFO 2372 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-01 15:45:40.439  INFO 2372 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-06-01 15:45:40.516  INFO 2372 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-01 15:45:40.516  INFO 2372 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1107 ms
+2021-06-01 15:45:40.834  INFO 2372 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-01 15:45:40.841  INFO 2372 --- [           main] com.example.Application                  : Started Application in 1.795 seconds (JVM running for 2.221)
