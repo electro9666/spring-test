@@ -1,0 +1,26 @@
+println 'start'
+
+// 변수 타입 생략
+String message1 = 'hi'
+def message2 = 'hi2'
+
+println message1
+println message2
+
+// 클로저
+def closure1 = {
+	println 'hi closure1'
+}
+
+closure1.call()
+closure1()
+
+// 멀티 라인
+def name =
+"""
+select a
+from b
+where c=1
+"""
+
+println name
