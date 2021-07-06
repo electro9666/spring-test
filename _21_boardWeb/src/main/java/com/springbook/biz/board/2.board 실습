@@ -1,0 +1,10 @@
+// 109p
+--mariadb
+CREATE TABLE board (
+	seq int PRIMARY KEY,
+	title nvarchar(200),
+	writer nvarchar(20),
+	content nvarchar(2000),
+	regdate DATE DEFAULT NOW(),
+	cnt int(5) DEFAULT 0
+)
