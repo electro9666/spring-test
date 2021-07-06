@@ -1,5 +1,8 @@
 package com.springbook.biz.polymorphism;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class SonySpeaker {
 
 	public void volumeUp() {

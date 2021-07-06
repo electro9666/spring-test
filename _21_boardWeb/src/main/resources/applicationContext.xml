@@ -2,13 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 
 <!-- lazy-init="true" -->
 <!-- 	<bean id="tv" class="com.springbook.biz.polymorphism.SamsungTV" init-method="initMethod" destroy-method="destroyMethod"/> -->
 
-	<bean id="sony" class="com.springbook.biz.polymorphism.SonySpeaker"/>
+<!-- 	<bean id="sony" class="com.springbook.biz.polymorphism.SonySpeaker"/> -->
 
 <!-- 	생성자 파라메터 -->
 <!-- 	<bean id="tv" class="com.springbook.biz.polymorphism.SamsungTV"> -->
@@ -17,5 +19,7 @@
 <!-- 	</bean> -->
 	
 <!-- 	setter -->
-	<bean id="tv" class="com.springbook.biz.polymorphism.SamsungTV" p:sonySpeaker-ref="sony" p:price="27000"/>
+<!-- 	<bean id="tv" class="com.springbook.biz.polymorphism.SamsungTV" p:sonySpeaker-ref="sony" p:price="27000"/> -->
+
+	<context:component-scan base-package="com.springbook.biz.polymorphism" />
 </beans>
