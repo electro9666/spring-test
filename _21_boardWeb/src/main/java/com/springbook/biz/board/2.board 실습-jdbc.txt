@@ -8,3 +8,5 @@ CREATE TABLE board (
 	regdate DATE DEFAULT NOW(),
 	cnt int(5) DEFAULT 0
 )
+
+// Main.java로 실행
