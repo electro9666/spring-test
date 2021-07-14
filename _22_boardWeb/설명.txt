@@ -10,5 +10,5 @@ CREATE TABLE users (
 )
 
 5. model2 아키텍처
-spring이 아니라 servlet 구현체로 작동함.
+spring이 아니라 servlet 구현체로 작동함. - if else if else if else if...
 톰캣으로 연결해서 실행
