@@ -1,3 +1,4 @@
+book: springquickstart - rubypaper
 1. bean 실습 
 패키지: com.springbook.biz.polymorphism
 
