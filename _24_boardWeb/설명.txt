@@ -12,3 +12,10 @@ Caused by: java.lang.NullPointerException
 	
 VM arguments에
 -javaagent:C:\Users\ysh\.m2\repository\org\springframework\springloaded\1.2.8.RELEASE\springloaded-1.2.8.RELEASE.jar -noverify
+
+# dcevm 테스트
+빈을 찾지 못함.(같은 빈이 2개라서? 뭔가 빈을 찾는 규격이 다른듯... mybatis가 추가되면서 빈이 2개가 된듯...) 
+Message: Error creating bean with name 'boardService': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.springbook.biz.board.impl.BoardDAOMybatis com.springbook.biz.board.impl.BoardServiceImpl.boardDAO; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'boardDAOMybatis': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private org.mybatis.spring.SqlSessionTemplate com.springbook.biz.board.impl.BoardDAOMybatis.mybatis; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type [org.mybatis.spring.SqlSessionTemplate] is defined: expected single matching bean but found 2: org.mybatis.spring.SqlSessionTemplate#0,org.mybatis.spring.SqlSessionTemplate#1
+
+VM arguments에
+-XXaltjvm=dcevm -javaagent:F:\java_apps\hotswap-agent-1.4.1.jar

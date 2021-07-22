@@ -11,3 +11,9 @@ aop가 관련되어 있는것 보니, @Repository("boardDAO")인 경우는 트�
 VM arguments에
 -javaagent:C:\Users\ysh\.m2\repository\org\springframework\springloaded\1.2.8.RELEASE\springloaded-1.2.8.RELEASE.jar -noverify
 
+# dcevm 테스트
+소스변경하고, 화면 새로고침하면 에러....-_-;
+java.sql.SQLException: Data source is closed
+
+VM arguments에
+-XXaltjvm=dcevm -javaagent:F:\java_apps\hotswap-agent-1.4.1.jar

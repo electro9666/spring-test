@@ -60,7 +60,7 @@ public class BoardController {
 	// �� ��� �˻�
 	@RequestMapping("/getBoardList.do")
 	public String getBoardList(BoardVO vo, Model model) {
-		System.out.println("AB");
+		System.out.println("AB1");
 		// Model ���� ����
 		model.addAttribute("boardList", boardService.getBoardList(vo));																
 		return "getBoardList.jsp"; // View �̸� ����
