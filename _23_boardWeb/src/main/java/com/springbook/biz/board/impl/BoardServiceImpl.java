@@ -15,7 +15,7 @@ public class BoardServiceImpl implements BoardService {
 
 	public void insertBoard(BoardVO vo) {
 //		if (vo.getSeq() == 0) {
-//			throw new IllegalArgumentException("0¹ø ±ÛÀº µî·ÏÇÒ ¼ö ¾ø½À´Ï´Ù.");
+//			throw new IllegalArgumentException("0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 //		}
 		boardDAO.insertBoard(vo);
 	}
@@ -33,6 +33,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	public List<BoardVO> getBoardList(BoardVO vo) {
+		System.out.println("service21");
 		return boardDAO.getBoardList(vo);
 	}
 }

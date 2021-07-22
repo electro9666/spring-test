@@ -36,10 +36,10 @@ public class BoardController {
 		return boardListVO;
 	}
 
-	// ±Û µî·Ï
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½
 	@RequestMapping(value = "/insertBoard.do")
 	public String insertBoard(BoardVO vo) throws IOException {
-		// ÆÄÀÏ ¾÷·Îµå Ã³¸®
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ Ã³ï¿½ï¿½
 		MultipartFile uploadFile = vo.getUploadFile();
 		if (!uploadFile.isEmpty()) {
 			String fileName = uploadFile.getOriginalFilename();
@@ -50,46 +50,47 @@ public class BoardController {
 		return "getBoardList.do";
 	}
 
-	// ±Û ¼öÁ¤
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping("/updateBoard.do")
 	public String updateBoard(@ModelAttribute("board") BoardVO vo) {
 		boardService.updateBoard(vo);
 		return "getBoardList.do";
 	}
 
-	// ±Û »èÁ¦
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping("/deleteBoard.do")
 	public String deleteBoard(BoardVO vo) {
 		boardService.deleteBoard(vo);
 		return "getBoardList.do";
 	}
 
-	// ±Û »ó¼¼ Á¶È¸
+	// ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¸
 	@RequestMapping("/getBoard.do")
 	public String getBoard(BoardVO vo, Model model) {
-		model.addAttribute("board", boardService.getBoard(vo)); // Model Á¤º¸ ÀúÀå
-		return "getBoard.jsp"; // View ÀÌ¸§ ¸®ÅÏ
+		model.addAttribute("board", boardService.getBoard(vo)); // Model ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		return "getBoard.jsp"; // View ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 
-	// °Ë»ö Á¶°Ç ¸ñ·Ï ¼³Á¤
+	// ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@ModelAttribute("conditionMap")
 	public Map<String, String> searchConditionMap() {
 		Map<String, String> conditionMap = new HashMap<String, String>();
-		conditionMap.put("Á¦¸ñ", "TITLE");
-		conditionMap.put("³»¿ë", "CONTENT");
+		conditionMap.put("ï¿½ï¿½ï¿½ï¿½", "TITLE");
+		conditionMap.put("ï¿½ï¿½ï¿½ï¿½", "CONTENT");
 		return conditionMap;
 	}
 
-	// ±Û ¸ñ·Ï °Ë»ö
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	@RequestMapping("/getBoardList.do")
 	public String getBoardList(BoardVO vo, Model model) {
+		System.out.println("AA");
 		// Null Check
 		if (vo.getSearchCondition() == null)
 			vo.setSearchCondition("TITLE");
 		if (vo.getSearchKeyword() == null)
 			vo.setSearchKeyword("");
-		// Model Á¤º¸ ÀúÀå
+		// Model ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		model.addAttribute("boardList", boardService.getBoardList(vo));
-		return "getBoardList.jsp"; // View ÀÌ¸§ ¸®ÅÏ
+		return "getBoardList.jsp"; // View ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 }

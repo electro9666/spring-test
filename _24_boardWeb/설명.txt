@@ -1,3 +1,14 @@
 book: springquickstart - rubypaper
 
 spring mvc + mybatis
+
+# springloaded 테스트
+서버 실행될 때, 빈 생성에서 에러 발생해서 서버가 올라가지 않음.
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'boardDAO' defined in file [F:\workspace2020\spring-test\.metadata\.plugins\org.eclipse.wst.server.core\tmp4\wtpwebapps\_24_boardWeb\WEB-INF\classes\com\springbook\biz\board\impl\BoardDAO.class]: Instantiation of bean failed; nested exception is java.lang.ExceptionInInitializerError
+
+Caused by: java.lang.NullPointerException
+	at org.springsource.loaded.TypeRegistry.getReloadableType(TypeRegistry.java:1903)
+	at com.springbook.biz.board.impl.BoardDAO.<clinit>(BoardDAO.java)
+	
+VM arguments에
+-javaagent:C:\Users\ysh\.m2\repository\org\springframework\springloaded\1.2.8.RELEASE\springloaded-1.2.8.RELEASE.jar -noverify
