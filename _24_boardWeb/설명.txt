@@ -61,3 +61,5 @@ exclude하기
 # mybatis refresh 추가 (timer)
 RefreshableSqlSessionFactoryBean
 
+# RefreshableSqlSessionFactoryBean 대신
+watchService를 이용해서, spring init시에 외부에서 xml을 갱신시켜주면 안될까?
