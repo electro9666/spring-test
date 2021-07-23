@@ -26,6 +26,7 @@ expected single matching bean but found 4:
 헤결
 그래서 bean id를 추가했고,
 applicationContext.xml의 ${jdbc.url}를 읽지 못해서, xml에 하드코딩함.
+Message: Could not open JDBC Connection for transaction; nested exception is org.apache.commons.dbcp.SQLNestedException: Cannot load JDBC driver class '${jdbc.driver}'
 
 에러는 안나는데, 소스 변경이 반영되지 않는다.
 
