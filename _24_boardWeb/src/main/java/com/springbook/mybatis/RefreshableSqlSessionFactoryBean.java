@@ -193,6 +193,7 @@ public class RefreshableSqlSessionFactoryBean extends SqlSessionFactoryBean impl
 	}
 
 	public void destroy() throws Exception {
+		System.out.println("destroy12");
 		timer.cancel();
 	}
 }

@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -83,7 +85,7 @@ public class BoardController {
 	// �� ��� �˻�
 	@RequestMapping("/getBoardList.do")
 	public String getBoardList(BoardVO vo, Model model) {
-		System.out.println("Aa11zzA");
+		System.out.println("Aa11zzAa11z");
 		// Null Check
 		if (vo.getSearchCondition() == null)
 			vo.setSearchCondition("TITLE");
