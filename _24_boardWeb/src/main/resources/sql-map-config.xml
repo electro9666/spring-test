@@ -9,7 +9,7 @@
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->
-	<mappers>
-		<mapper resource="mappings/board-mapping.xml" />
-	</mappers>
+<!-- 	<mappers> -->
+<!-- 		<mapper resource="mappings/board-mapping.xml" /> -->
+<!-- 	</mappers> -->
 </configuration>
