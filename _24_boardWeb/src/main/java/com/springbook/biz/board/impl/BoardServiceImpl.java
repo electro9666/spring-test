@@ -11,7 +11,7 @@ import com.springbook.biz.board.BoardVO;
 
 @Service("boardService")
 public class BoardServiceImpl implements BoardService {
-	@Value("${jdbc.driver}")
+//	@Value("${jdbc.driver}")
 	private String jdbcDriver;
 	
 	@Autowired
@@ -38,6 +38,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	public List<BoardVO> getBoardList(BoardVO vo) {
+		System.out.println("service123zz");
 		return boardDAO.getBoardList(vo);
 	}
 }

@@ -12,30 +12,30 @@ import com.springbook.biz.board.BoardVO;
 public class BoardDAOMybatis{
 	
 	@Autowired
-	private SqlSessionTemplate mybatis;
+	private SqlSessionTemplate sqlSessionTemplate;
 
 	public void insertBoard(BoardVO vo) {
-		System.out.println("===> Mybatis·Î insertBoard() ±â´É Ã³¸®");
-		mybatis.insert("BoardDAO.insertBoard", vo);
+		System.out.println("===> Mybatisï¿½ï¿½ insertBoard() ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
+		sqlSessionTemplate.insert("BoardDAO.insertBoard", vo);
 	}
 
 	public void updateBoard(BoardVO vo) {
-		System.out.println("===> Mybatis·Î updateBoard() ±â´É Ã³¸®");
-		mybatis.update("BoardDAO.updateBoard", vo);
+		System.out.println("===> Mybatisï¿½ï¿½ updateBoard() ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
+		sqlSessionTemplate.update("BoardDAO.updateBoard", vo);
 	}
 
 	public void deleteBoard(BoardVO vo) {
-		System.out.println("===> Mybatis·Î deleteBoard() ±â´É Ã³¸®");
-		mybatis.delete("BoardDAO.deleteBoard", vo);
+		System.out.println("===> Mybatisï¿½ï¿½ deleteBoard() ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
+		sqlSessionTemplate.delete("BoardDAO.deleteBoard", vo);
 	}
 
 	public BoardVO getBoard(BoardVO vo) {
-		System.out.println("===> Mybatis·Î getBoard() ±â´É Ã³¸®");
-		return (BoardVO) mybatis.selectOne("BoardDAO.getBoard", vo);
+		System.out.println("===> Mybatisï¿½ï¿½ getBoard() ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
+		return (BoardVO) sqlSessionTemplate.selectOne("BoardDAO.getBoard", vo);
 	}
 
 	public List<BoardVO> getBoardList(BoardVO vo) {
-		System.out.println("===> Mybatis·Î getBoardList() ±â´É Ã³¸®");
-		return mybatis.selectList("BoardDAO.getBoardList", vo);
+		System.out.println("===> Mybatisï¿½ï¿½ getBoardList() zzzzzzzzzzzzzzzz");
+		return sqlSessionTemplate.selectList("BoardDAO.getBoardList", vo);
 	}
 }

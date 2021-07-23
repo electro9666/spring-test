@@ -15,14 +15,19 @@
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 
 	<!-- DataSource 설정 -->
-	<context:property-placeholder location="classpath:config/database.properties" />
+	<!-- dcevm에서 ${jdbc.url}를 읽지 못해서 -->
+<!-- 	<context:property-placeholder location="classpath:config/database.properties" /> -->
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
-		<property name="driverClassName" value="${jdbc.driver}" />
-		<property name="url" value="${jdbc.url}" />
-		<property name="username" value="${jdbc.username}" />
-		<property name="password" value="${jdbc.password}" />
+<!-- 		<property name="driverClassName" value="${jdbc.driver}" /> -->
+<!-- 		<property name="url" value="${jdbc.url}" /> -->
+<!-- 		<property name="username" value="${jdbc.username}" /> -->
+<!-- 		<property name="password" value="${jdbc.password}" /> -->
+		<property name="driverClassName" value="org.mariadb.jdbc.Driver" />
+		<property name="url" value="jdbc:mariadb://localhost:3306/springquickstart-rubypaper" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />
 	</bean>
 
 	<!-- Spring JDBC 설정 -->
@@ -40,7 +45,7 @@
 		<property name="dataSource" ref="dataSource"/>
 		<property name="configLocation" value="classpath:sql-map-config.xml"/>
 	</bean>
-	<bean class="org.mybatis.spring.SqlSessionTemplate">
+	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSessionTemplate">
 		<constructor-arg ref="sqlSession"></constructor-arg>
 	</bean>
 	
