@@ -38,6 +38,7 @@ VM arguments에
 // -XX:TraceRedefineClasses=1은 get feedback about reloaded classes.
 최종
 -XXaltjvm=dcevm -javaagent:F:\java_apps\hotswap-agent-1.3.0.jar -XX:TraceRedefineClasses=1
+-XXaltjvm=dcevm -javaagent:F:\java_apps\hotswap-agent-1.4.1.jar -XX:TraceRedefineClasses=1
 
 >>>>>>
 controller, service, dao 소스변경사항 반영되는 것 확인함.

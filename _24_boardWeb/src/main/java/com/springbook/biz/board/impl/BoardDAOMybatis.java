@@ -35,7 +35,7 @@ public class BoardDAOMybatis{
 	}
 
 	public List<BoardVO> getBoardList(BoardVO vo) {
-		System.out.println("===> Mybatis�� getBoardList() zzzzzzzzzzzzzzzz");
+		System.out.println("AA12===> Mybatis�� getBoardList() zzzzzzzzzzzzzzzz");
 		return sqlSessionTemplate.selectList("BoardDAO.getBoardList", vo);
 	}
 }
