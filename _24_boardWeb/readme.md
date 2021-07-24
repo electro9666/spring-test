@@ -64,3 +64,21 @@ RefreshableSqlSessionFactoryBean
 
 # RefreshableSqlSessionFactoryBean 대신
 watchService를 이용해서, spring init시에 외부에서 xml을 갱신시켜주면 안될까?
+
+
+---
+
+# mybatis에 mapper class로 설정
+MyMapper.java를 사용해봤지만
+추가: <mybatis-spring:scan base-package="com.springbook.mybatis.mapper"/>
+src/main/java 폴더내에
+	com.springbook.mybatis.mapper폴더에 MyMapper.java 파일 생성
+src/main/resources폴더 내에
+	com.springbook.mybatis.mapper폴더에 MyMapper.xml 파일 생성
+		namespace를 com.springbook.mybatis.mapper.MyMapper로 설정
+결과: xml 변경해도 dcevm이 적용되지 않는듯;;
+
+참고: 
+https://github.com/HotswapProjects/HotswapAgent/issues/86
+https://github.com/HotswapProjects/HotswapAgent/blob/master/plugin/hotswap-agent-mybatis-plugin/src/test/java/org/hotswap/agent/plugin/mybatis/MyBatisPluginTest.java#L90
+https://kimvampa.tistory.com/59

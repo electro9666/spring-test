@@ -6,8 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,10 +18,14 @@ import org.springframework.web.multipart.MultipartFile;
 import com.springbook.biz.board.BoardListVO;
 import com.springbook.biz.board.BoardService;
 import com.springbook.biz.board.BoardVO;
+import com.springbook.mybatis.mapper.MyMapper;
 
 @Controller
 @SessionAttributes("board")
 public class BoardController {
+	@Autowired
+	MyMapper myMapper;
+			
 	@Autowired
 	private BoardService boardService;
 
@@ -85,7 +87,13 @@ public class BoardController {
 	// �� ��� �˻�
 	@RequestMapping("/getBoardList.do")
 	public String getBoardList(BoardVO vo, Model model) {
-		System.out.println("Aa11zzAa11zdd1zzzzzds");
+		/**
+		 * mapper class test
+		 */
+		System.out.println("myMapper.getTime():" + myMapper.getTime());
+		System.out.println("myMapper.getTime3():" + myMapper.getTime3());
+		
+		System.out.println("Aa11zzAa11zdd1zzzzzds11");
 		// Null Check
 		if (vo.getSearchCondition() == null)
 			vo.setSearchCondition("TITLE");
