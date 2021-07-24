@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.HashSet;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -11,6 +12,9 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.core.io.Resource;
 
 public class WatchSqlSessionFactoryBean extends SqlSessionFactoryBean implements DisposableBean {
+	private MyWatch myWatch = null;
+	private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+	
 	private SqlSessionFactory proxy;
 	private Resource[] mapperLocations;
 
@@ -43,18 +47,27 @@ public class WatchSqlSessionFactoryBean extends SqlSessionFactoryBean implements
 //		System.out.println("pathList:" + pathList);
 
 		// start watchService
-		new MyWatch(pathList.toArray(new String[] {})).start(a -> {
+		myWatch = new MyWatch(pathList.toArray(new String[] {}));
+		myWatch.start(a -> {
 //			System.out.println("!!" + a);
+			lock.writeLock().lock();
 			try {
 				super.afterPropertiesSet();
 			} catch (Exception e) {
-				e.printStackTrace();
+				// TODO Auto-generated catch block
+			} finally {
+				lock.writeLock().unlock();
 			}
 		});
 	}
 
 	private Object getParentObject() throws Exception {
-		return super.getObject();
+		lock.readLock().lock();
+		try {
+			return super.getObject();
+		} finally {
+			lock.readLock().unlock();
+		}
 	}
 
 	public SqlSessionFactory getObject() {
@@ -71,5 +84,6 @@ public class WatchSqlSessionFactoryBean extends SqlSessionFactoryBean implements
 
 	public void destroy() throws Exception {
 		System.out.println("destroy12");
+		myWatch.stop();
 	}
 }

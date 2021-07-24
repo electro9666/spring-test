@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class MyWatch {
+	private boolean isStop = false;
 	// 프로젝트 경로
 	private String[] projPath; 
 
@@ -34,7 +35,7 @@ public class MyWatch {
 		}
 
 		Thread thread = new Thread(() -> {
-			while (true) {
+			while (!isStop) {
 				try {
 					watchKey = watchService.take();// 이벤트가 오길 대기(Blocking)
 				} catch (InterruptedException e) {
@@ -83,5 +84,8 @@ public class MyWatch {
 			}
 		});
 		thread.start();
+	}
+	public void stop() {
+		this.isStop = true;
 	}
 }
