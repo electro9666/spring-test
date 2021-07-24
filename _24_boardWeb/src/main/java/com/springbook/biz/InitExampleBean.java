@@ -26,5 +26,6 @@ public class InitExampleBean implements DisposableBean {
 
 	@Override
 	public void destroy() throws Exception {
+		System.out.println("InitExampleBean destroy");
 	}
 }

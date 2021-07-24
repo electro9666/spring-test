@@ -24,6 +24,7 @@ public class MyWatch {
 	}
 	
 	public void start(Consumer<Path> f) throws IOException {
+		this.isStop = false;
 		// watchService 생성
 		WatchService watchService = FileSystems.getDefault().newWatchService();
 		// 경로 생성

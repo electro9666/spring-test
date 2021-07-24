@@ -48,17 +48,17 @@ public class WatchSqlSessionFactoryBean extends SqlSessionFactoryBean implements
 
 		// start watchService
 		myWatch = new MyWatch(pathList.toArray(new String[] {}));
-		myWatch.start(a -> {
-//			System.out.println("!!" + a);
-			lock.writeLock().lock();
-			try {
-				super.afterPropertiesSet();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-			} finally {
-				lock.writeLock().unlock();
-			}
-		});
+		// TODO ECEVM으로 mybatis mapper처리가 가능한지 테스트 중(임시 주석처리)
+//		myWatch.start(a -> {
+//			lock.writeLock().lock();
+//			try {
+//				super.afterPropertiesSet();
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//			} finally {
+//				lock.writeLock().unlock();
+//			}
+//		});
 	}
 
 	private Object getParentObject() throws Exception {
@@ -84,6 +84,8 @@ public class WatchSqlSessionFactoryBean extends SqlSessionFactoryBean implements
 
 	public void destroy() throws Exception {
 		System.out.println("destroy12");
-		myWatch.stop();
+		if (myWatch != null) {
+			myWatch.stop();
+		}
 	}
 }

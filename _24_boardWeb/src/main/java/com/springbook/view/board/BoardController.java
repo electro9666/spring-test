@@ -85,7 +85,7 @@ public class BoardController {
 	// �� ��� �˻�
 	@RequestMapping("/getBoardList.do")
 	public String getBoardList(BoardVO vo, Model model) {
-		System.out.println("Aa11zzAa11zd");
+		System.out.println("Aa11zzAa11zdd1zzzzzds");
 		// Null Check
 		if (vo.getSearchCondition() == null)
 			vo.setSearchCondition("TITLE");
