@@ -21,8 +21,14 @@
 			<td align="center"><br>
 			<br><br><br><br>
 			 Message: ${exception.message} 
-			 <br><br><br><br>
-			<br></td>
+			<br>
+				<%
+					for (StackTraceElement stackTraceElement : exception.getStackTrace()) {
+						System.out.println(stackTraceElement);
+					}
+				%>
+			<br>
+			</td>
 		</tr>
 	</table>
 </body>
